@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact name="cryptoserviceapp:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/cryptoserviceapp_jar</output-path>
+    <root id="root">
+      <element id="archive" name="cryptoserviceapp.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="cryptoserviceapp" />
+      </element>
+      <element id="library" level="project" name="com.google.code.gson:gson:2.8.6" />
+      <element id="library" level="project" name="org.postgresql:postgresql:42.2.18" />
+    </root>
+  </artifact>
+</component>

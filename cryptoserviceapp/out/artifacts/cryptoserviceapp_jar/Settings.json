@@ -1,0 +1,5 @@
+{
+    "ConnectionUrl": "jdbc:postgresql://localhost:5432/binanceDB",
+    "UserName": "postgres",
+    "Password": "1998521998"
+  }
