@@ -26,7 +26,7 @@ public class DatabaseHelper {
     }
 
 
-    public String getDataBySymbol(String symbol) {
+    public ArrayList<CryptoMoneyModel> getDataBySymbol(String symbol) {
         try {
             Gson gson = new Gson();
             ArrayList<CryptoMoneyModel> cryptoList = new ArrayList<>();
@@ -43,20 +43,19 @@ public class DatabaseHelper {
                     cryptoList.add(tempModel);
                 }
                 if (cryptoList.size() == 3)
-                    return gson.toJson(cryptoList);
-                    //insufficient data
+                    return cryptoList;
                 else
-                    return "";
-            } else return "";
+                    return null;
+            } else return null;
 
 
         } catch (Exception exception) {
             exception.printStackTrace();
-            return "";
+            return null;
         }
     }
 
-    public String getDataAvgBySymbol(String symbol) {
+    public CryptoMoneyModel getDataAvgBySymbol(String symbol) {
         try {
             Gson gson = new Gson();
             ArrayList<CryptoMoneyModel> cryptoList = new ArrayList<>();
@@ -81,18 +80,19 @@ public class DatabaseHelper {
                     CryptoMoneyModel model = new CryptoMoneyModel();
                     model.symbol = symbol;
                     model.price = priceSum / 12;
-                    return gson.toJson(model);
+
+                    return model;
 
                 }
                 //insufficient data
                 else
-                    return "";
-            } else return "";
+                    return null;
+            } else return null;
 
 
         } catch (Exception exception) {
             exception.printStackTrace();
-            return "";
+            return null;
         }
     }
 
