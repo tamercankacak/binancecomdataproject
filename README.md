@@ -46,7 +46,7 @@ localhost:8080/getPricesBySymbol?symbol={symbol}
 localhost:8080/getPricesAvgBySymbol?symbol={symbol}
 ```
 ```json
-{"symbol":"ETHBTC","price":0.03969525,"insertdate":null}
+{"symbol":"ETHBTC","price":0.03969525}
 ``` 
 
 #### Sorgular
