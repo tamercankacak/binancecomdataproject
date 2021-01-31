@@ -27,7 +27,7 @@ public class BinanceController {
     public ResponseEntity<ArrayList<CryptoMoneyModel>> getPricesBySymbol(@RequestParam String symbol){
         ArrayList<CryptoMoneyModel> data = _databaseHelper.getDataBySymbol(symbol);
         if (data == null)
-        return new ResponseEntity("{\"INVALID\":\" TRY THIS : BTCUSD BNBBTC ETHBTC XRPBTC BCHBTC LTCBTC\"}",HttpStatus.BAD_REQUEST);
+        return new ResponseEntity("{\"INVALID\":\" TRY THIS : BTCBUSD BNBBTC ETHBTC XRPBTC BCHBTC LTCBTC\"}",HttpStatus.BAD_REQUEST);
         return new ResponseEntity<>(data,HttpStatus.OK);
     }
 
@@ -36,7 +36,7 @@ public class BinanceController {
     public ResponseEntity<CryptoMoneyModel> getPriceAvgBySymbol(@RequestParam String symbol){
         CryptoMoneyModel data = _databaseHelper.getDataAvgBySymbol(symbol);
         if (data == null)
-            return new ResponseEntity("{\"INVALID\":\" TRY THIS : BTCUSD BNBBTC ETHBTC XRPBTC BCHBTC LTCBTC\"}",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity("{\"INVALID\":\" TRY THIS : BTCBUSD BNBBTC ETHBTC XRPBTC BCHBTC LTCBTC\"}",HttpStatus.BAD_REQUEST);
         return new ResponseEntity<>(data,HttpStatus.OK);
     }
 

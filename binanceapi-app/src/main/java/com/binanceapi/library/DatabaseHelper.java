@@ -58,35 +58,20 @@ public class DatabaseHelper {
     public CryptoMoneyModel getDataAvgBySymbol(String symbol) {
         try {
             Gson gson = new Gson();
-            ArrayList<CryptoMoneyModel> cryptoList = new ArrayList<>();
-            String _sqlText = "select symbol,price,insertdate from cryptomoneys where symbol = '" + symbol + "' \n" +
-                    "ORDER BY insertdate desc limit 12";
+            CryptoMoneyModel tempModel = new CryptoMoneyModel();
+            String _sqlText = "select AVG(tablex.price) as price  from (select price from cryptomoneys where symbol = '" + symbol + "' \n" +
+                    "\t\t   order by insertdate desc limit 12)tablex";
+
+
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(_sqlText);
             if (result.isBeforeFirst()) {
                 while (result.next()) {
-                    CryptoMoneyModel tempModel = new CryptoMoneyModel();
                     tempModel.price = result.getDouble("price");
-                    tempModel.symbol = result.getString("symbol");
-                    tempModel.insertdate = result.getTimestamp("insertdate");
-                    cryptoList.add(tempModel);
                 }
-                double priceSum = 0;
-                if (cryptoList.size() == 12) {
-                    for (CryptoMoneyModel tempModel :
-                            cryptoList) {
-                    priceSum += tempModel.price;
-                    }
-                    CryptoMoneyModel model = new CryptoMoneyModel();
-                    model.symbol = symbol;
-                    model.price = priceSum / 12;
+                tempModel.symbol = symbol;
+                return tempModel;
 
-                    return model;
-
-                }
-                //insufficient data
-                else
-                    return null;
             } else return null;
 
 

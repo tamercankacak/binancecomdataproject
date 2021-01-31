@@ -1,7 +1,11 @@
 package com.binanceapi.library;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.Date;
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CryptoMoneyModel {
     String symbol;
     Double price;
